@@ -1,0 +1,149 @@
+.NavbarItems{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.25);
+    margin:10px;
+    width: 98%;
+    height: 80px;
+    border-radius: 13px;
+    z-index: 1030;
+    position: fixed; /* Make the navbar fixed */
+    top: 0; /* Stick it to the top */
+    left: 0;
+    right: 0;
+    background-color: white;
+    
+}
+.navbar-logo{
+    color:#222;
+    font-size: 2rem;
+    cursor:pointer;
+}
+.nav-menu{
+    display:grid;
+    grid-template-columns:repeat(6,auto) ;
+    grid-gap:10px;
+    list-style: none;
+    align-items: center;
+    z-index: 1030; 
+
+}
+.nav-links{
+    text-decoration: none;
+    color: rgb(15, 15, 94);
+    font-size:1.2rem;
+    font-weight: 600;
+    padding: 0.7rem 1rem;
+    white-space: nowrap;
+}
+.nav-links i{
+    padding-right: 10px;
+}
+.nav-links:hover{
+    background-color: rgb(15, 15, 94) ;
+    color: #ff6347;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+.nav-links.active {
+    background-color: rgb(15, 15, 94);
+    color: #ff6347;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+.nav-links-mobile{
+    display:none;
+}
+button{
+    padding:0.5rem 1rem;
+    white-space: nowrap;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border:none;
+    cursor:pointer;
+    transition:0.2s ease-in-out ;
+}
+button:hover{
+    background-color: rgb(15, 15, 94);
+    color:#ff6347;
+
+}
+.menu-icons{
+    display:none;
+    z-index: 1030;
+}
+@media screen and (max-width:850px){
+    .NavbarItems{
+        z-index:1030;
+    }
+    .nav-menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background: #fff;
+        width:100%;
+        height: auto;
+        position: absolute;
+        top: 70px;
+        left: -100%;
+        opacity: 0;
+        align-items: stretch;
+        padding: 80px 0 30px 0;
+        margin: 0;
+        text-align: center;
+        z-index:1020;
+    }
+    .nav-menu.active{
+        left:0;
+        opacity:1;
+        z-index:1020;
+
+    }
+    .nav-links{
+        display:block ;
+        width: 100%;
+        font-size: 1.2rem;
+        padding: 2rem 0;
+        
+    }
+    .nav-links.active {
+        background-color: rgb(15, 15, 94);
+        color: #ff6347; /* Adjust this to match your hover color if needed */
+        /* border-radius: 4px; */
+        transition: none;
+    }
+    
+    .nav-links:hover{
+        background: rgb(15, 15, 94);
+        transition: none;
+    }
+    button{
+        display:none;
+
+    }
+    .nav-links-mobile{
+        display:block;
+        text-align: center;
+        padding: 1.5rem;
+        margin:auto;
+        border-radius: 4px;
+        width:80%;
+        background:rgb(15, 15, 94);
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight:700;
+        letter-spacing:2px;
+        color:#ff6347;
+    }
+    .menu-icons{
+        display:block;
+        z-index: 1030; 
+    }
+    .menu-icons  i{
+        font-size: 1.2rem;
+        color:#222;
+    }
+}

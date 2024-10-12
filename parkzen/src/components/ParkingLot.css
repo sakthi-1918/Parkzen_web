@@ -1,0 +1,44 @@
+.parking-lot {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px; /* Space between columns */
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between slots in a column */
+    flex: 1;
+  }
+  
+  .column-title {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .parking-space {
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .parking-space.available {
+    background-color: #8fbc8f;
+    color: white;
+  }
+  
+  .parking-space.occupied {
+    background-color: #ff6347;
+    color: white;
+  }
+  
+  .parking-space:hover {
+    filter: brightness(0.9);
+  }
+  

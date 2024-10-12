@@ -1,0 +1,96 @@
+body {
+    background-color: #f9f9fa;
+}
+
+.padding {
+    padding: 3rem !important;
+}
+
+.user-card-full {
+    overflow: hidden;
+    width: 100%; /* Make the card full width */
+}
+
+.card {
+    border-radius: 5px;
+    box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+    border: none;
+    margin-bottom: 30px;
+    width: 100%; /* Ensure the card takes full width */
+}
+
+.user-card-full .user-profile {
+    border-radius: 5px 0 0 5px;
+}
+
+.bg-c-parkzen {
+    background: linear-gradient(to right, #0c2853, #004589);
+}
+
+.user-profile {
+    padding: 20px 0;
+}
+
+.card-block {
+    padding: 1.25rem;
+}
+
+.m-b-25 {
+    margin-bottom: 25px;
+}
+
+.img-radius {
+    border-radius: 5px;
+}
+
+h6 {
+    font-size: 14px;
+}
+
+.card .card-block p {
+    line-height: 25px;
+}
+
+.b-b-default {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.m-b-20 {
+    margin-bottom: 20px;
+}
+
+.p-b-5 {
+    padding-bottom: 5px !important;
+}
+
+.m-b-10 {
+    margin-bottom: 10px;
+}
+
+.text-info {
+    color: #0d47a1 !important;
+}
+
+.f-w-600 {
+    font-weight: 600;
+}
+
+.m-t-40 {
+    margin-top: 20px;
+}
+
+.user-card-full .social-link li {
+    display: inline-block;
+}
+
+.user-card-full .social-link li a {
+    font-size: 20px;
+    margin: 0 10px 0 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.section-heading {
+    font-size: 16px;
+    color: #0d47a1;
+    font-weight: bold;
+}

@@ -1,0 +1,82 @@
+.parking-lot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  .top-left-corner {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    margin-bottom: 40px; /* Add space between top section and center area */
+    gap: 10px;
+  }
+  
+  .center-area {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Use full width */
+    max-width: 800px; /* Adjust this to make the sections closer */
+    margin-right: 0; /* Remove margin to utilize full width */
+  }
+  
+  .center-left, .center-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1; /* Allow the columns to grow equally */
+  }
+  
+  .center-row {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .horizontal-gap {
+    height: 30px; /* Adjust the gap height here */
+  }
+  
+  .right-corner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    right: 20px;
+    top: 50px;
+  }
+  
+  .slot {
+    width: 50px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0f0;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .vertical-slot {
+    width: 100px;
+    height: 50px;
+  }
+  
+  .slot.occupied {
+    background-color: rgb(209, 79, 79);
+    color: #fff;
+    padding: 5px; /* Make sure this doesn't add too much extra space */
+    font-size: 12px; /* Adjust this to fit the text */
+    box-sizing: border-box; 
+  }
+  
+  .slot.available {
+    background-color: rgb(111, 204, 111);
+    color: #000;
+  }
