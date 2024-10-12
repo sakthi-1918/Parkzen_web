@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import HoverableButton from './button';
 
 export default function UserCard() {
   const [slots, setSlots] = useState([]);
@@ -28,7 +29,7 @@ export default function UserCard() {
               <div className="row no-gutters">
                 <div className="col-md-4">
                   <img
-                    src={slot.image} // Ensure slot image URL is correct
+                    src={`http://localhost:3005/images/${slot.image}`} // Updated the image path
                     className="card-img"
                     alt={slot.title}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
@@ -53,8 +54,8 @@ export default function UserCard() {
                       </div>
                     </div>
                     <div className="d-flex justify-content-between">
-                      <button className="btn btn-primary">Book</button>
-                      <button className="btn btn-secondary">View</button>
+                      <HoverableButton buttonText="Book" />
+                      <HoverableButton buttonText="View" />
                     </div>
                   </div>
                 </div>
