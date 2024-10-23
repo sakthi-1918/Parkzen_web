@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function HoverableButton({ buttonText }) {
+function HoverableButton({ buttonText, navigateTo }) {
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate(); // Initialize the useNavigate hook
+
+  const handleClick = () => {
+    if (navigateTo) {
+      navigate(navigateTo); // Navigate to the passed route
+    }
+  };
 
   return (
     <button
@@ -15,6 +23,7 @@ function HoverableButton({ buttonText }) {
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleClick} // Add onClick handler for navigation
     >
       {buttonText}
     </button>

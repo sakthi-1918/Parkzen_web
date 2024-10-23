@@ -10,6 +10,7 @@ import SignIn from './pages/signin.js';
 import Signup from './pages/Signup.js';
 import AboutPage from './pages/Aboutpage.js';
 import View from './pages/View.js';
+import BooksPage from './pages/Book.js';
 
 
 
@@ -31,7 +32,7 @@ const App = () => {
         <Route path="/profile" element={<ProfilePage email={email} />} />
         <Route path="/about" element={<AboutPage />} /> 
         <Route path="/view" element={<View />} />  {/* Profile route */}
-        
+        <Route path="/book" element={<BooksPage />} />
       </Routes>
   );
 }

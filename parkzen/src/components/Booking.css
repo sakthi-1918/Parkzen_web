@@ -1,0 +1,63 @@
+/* Booking.css */
+.booking-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.book-btn {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #00008B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.book-btn:hover {
+    background-color: #00008B;
+}
+
+.confirmation-message {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #4caf50;
+    background-color: #e7ffe7;
+    border-radius: 5px;
+}
+
+.confirmation-message h3 {
+    margin: 0 0 10px;
+}
+
+.confirmation-message p {
+    margin: 5px 0;
+}
