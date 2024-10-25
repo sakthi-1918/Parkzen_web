@@ -1,4 +1,4 @@
-import ParkingLot from "../components/Slots";
+import ParkingLot from "../components/Slots1";
 import React from 'react';
 // Correct path to import Profile
 import Navibar from '../components/Navigationbar';
