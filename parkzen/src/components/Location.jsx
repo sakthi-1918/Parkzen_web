@@ -1,32 +1,46 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import HoverableButton from './button';
 
 export default function UserCard() {
   const [slots, setSlots] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  const [hoveredButtons, setHoveredButtons] = useState({});
 
-  // Fetch slot data from the backend
   useEffect(() => {
     const fetchSlots = async () => {
       try {
         const response = await fetch('http://localhost:3005/api/slots');
+        if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
-        console.log("Fetched data:", data); // Log the response to check its structure
-        setSlots(data); // Set slot data from the backend
+        setSlots(data);
       } catch (error) {
-        console.error('Error fetching slot data:', error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
       }
     };
-
     fetchSlots();
   }, []);
+
+  const handleBookClick = (slotTitle) => {
+    navigate('/book', { state: { slotTitle } });
+  };
+
+  const handleViewClick = (slotId) => {
+    navigate(`/view1/${slotId}`);
+  };
+
+  if (loading) return <div className="text-center mt-4">Loading slots...</div>;
+  if (error) return <div className="text-danger text-center mt-4">Error: {error}</div>;
 
   return (
     <div className="container mt-4">
       <div className="row justify-content-center">
         <div className="col-md-8">
           {slots.map((slot, index) => {
-            // Check if slot.slots is an array before processing it
             const totalSlots = Array.isArray(slot.slots) ? slot.slots.length : 0;
             const availableSlots = Array.isArray(slot.slots)
               ? slot.slots.filter(s => s.available).length
@@ -38,7 +52,7 @@ export default function UserCard() {
                 <div className="row no-gutters">
                   <div className="col-md-4">
                     <img
-                      src={`http://localhost:3005/images/${slot.image}`} // Updated the image path
+                      src={`http://localhost:3005/images/${slot.image}`}
                       className="card-img"
                       alt={slot.title}
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
@@ -63,8 +77,27 @@ export default function UserCard() {
                         </div>
                       </div>
                       <div className="d-flex justify-content-between">
-                        <HoverableButton buttonText="Book" navigateTo="/book" />
-                        <HoverableButton buttonText="View" navigateTo="/view"/>
+                        <button
+                          type="button"
+                          className="btn btn-primary"
+                          onClick={() => handleBookClick(slot.title)} // Pass the slot title here
+                        >
+                          Book
+                        </button>
+                        <button
+                          type="button"
+                          className="btn"
+                          style={{
+                            backgroundColor: '#00008B',
+                            color: hoveredButtons[slot._id] ? '#ff6347' : '#fff',
+                            borderColor: '#00008B',
+                          }}
+                          onMouseEnter={() => setHoveredButtons(prev => ({ ...prev, [slot._id]: true }))}
+                          onMouseLeave={() => setHoveredButtons(prev => ({ ...prev, [slot._id]: false }))}
+                          onClick={() => handleViewClick(slot._id)}
+                        >
+                          View
+                        </button>
                       </div>
                     </div>
                   </div>

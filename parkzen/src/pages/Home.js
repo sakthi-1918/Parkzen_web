@@ -218,6 +218,7 @@ function Home() {
   const headingStyle = {
     fontSize: '4rem',
     fontWeight: 'bold',
+    color: 'white',
     margin: '0',
     animation: 'fadeInUp 3s ease-out',
   };

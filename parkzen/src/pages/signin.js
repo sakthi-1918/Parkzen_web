@@ -39,6 +39,7 @@ const SignIn = ({ onLogin }) => { // Accept onLogin prop
 
             if (response.ok) {
                 setError('');
+                localStorage.setItem('userEmail', credentials.email); // Store email in local storage
                 onLogin(credentials.email); // Pass email to parent component
                 navigate('/home');
             } else {

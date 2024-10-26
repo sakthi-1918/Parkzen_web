@@ -12,8 +12,8 @@ export const MenuItems=[
         icon:"fa-solid fa-car"
     },
     {
-        title:"About",
-        url:"/about",
+        title:"My Bookings",
+        url:"/details",
         cName:"nav-links",
         icon:"fa-solid fa-circle-info"
     },

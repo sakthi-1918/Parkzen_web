@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom'; // Import useParams and useNavigate
 import axios from 'axios';
 import './Slots.css';
 
 const ParkingLot = () => {
+    const { slotId } = useParams(); // Get the slot ID from the URL
+    const navigate = useNavigate(); // Initialize useNavigate for navigation
     const [parkingData, setParkingData] = useState(null);
 
     useEffect(() => {
@@ -10,17 +13,24 @@ const ParkingLot = () => {
             try {
                 const response = await axios.get('http://localhost:3005/api/slots');
                 if (response.data && response.data.length > 0) {
-                    setParkingData(response.data[0]); // Display only the first item for this page
+                    // Find the parking data for the given slotId
+                    const slotData = response.data.find(slot => slot._id === slotId);
+                    if (slotData) {
+                        setParkingData(slotData); // Set the state with the found slot data
+                    } else {
+                        console.error("No parking data found for the given slot ID");
+                    }
                 }
             } catch (error) {
                 console.error("Failed to load parking data:", error);
             }
         };
+
         fetchParkingData();
-    }, []);
+    }, [slotId]); // Add slotId to the dependency array to refetch if it changes
 
     const handleBook = () => {
-        alert('Booking functionality not yet implemented!'); // Placeholder for booking functionality
+        navigate('/book'); // Navigate to the /book page
     };
 
     if (!parkingData) return <p>Loading...</p>;
@@ -36,11 +46,11 @@ const ParkingLot = () => {
                 />
                 <div className="info-content">
                     <h2>Parking Info</h2>
-                    <p><strong>Total Slots:</strong> {parkingData.totalSlots}</p>
-                    <p><strong>Slot Number:</strong> {parkingData.available}</p>
-                    <p><strong>Booked:</strong> {parkingData.booked}</p>
-                    <p><strong>Status:</strong> {parkingData.status}</p>
-                    <button className="book-button" onClick={handleBook}>Book</button>
+                    <p><strong>Total Slots:</strong> {parkingData.slots.length}</p> {/* Change here to use length of slots array */}
+                    <p><strong>Available:</strong> {parkingData.slots.filter(slot => slot.available).length}</p> {/* Count available slots */}
+                    <p><strong>Booked:</strong> {parkingData.slots.filter(slot => !slot.available).length}</p> {/* Count booked slots */}
+                    <p><strong>Status:</strong> {parkingData.slots.some(slot => slot.available) ? 'Available' : 'Fully Booked'}</p>
+                    <button className="book-button" onClick={handleBook}>Book</button> {/* Navigate to /book */}
                 </div>
             </div>
 
@@ -48,7 +58,7 @@ const ParkingLot = () => {
                 {parkingData.slots.map((slot, index) => (
                     <div 
                         key={index} 
-                        className={`slot ${slot.status === 'Available' ? 'available' : 'booked'}`}
+                        className={`slot ${slot.available ? 'available' : 'booked'}`} // Change here to check availability
                     >
                         Slot {slot.slotNumber}
                     </div>
