@@ -8,7 +8,7 @@ import Home from './pages/Home.js';
 import ProfilePage from './pages/ProfilePage.js';
 import SignIn from './pages/signin.js';
 import Signup from './pages/Signup.js';
-import AboutPage from './pages/Aboutpage.js';
+// import AboutPage from './pages/Aboutpage.js';
 import View1 from './pages/View1.js';
 import BooksPage from './pages/Book.js';
 import Bookdetails from './pages/BookingDet.js';
@@ -31,7 +31,7 @@ const App = () => {
         <Route path="/loc" element={<Options />} />
         {/* <Route path="/profile" element={<ProfilePage email />} /> */}
         <Route path="/profile" element={<ProfilePage email={email} />} />
-        <Route path="/about" element={<AboutPage />} /> 
+        {/* <Route path="/about" element={<AboutPage />} />  */}
         <Route path="/view1/:slotId" element={<View1 />} />  {/* Profile route */}
         <Route path="/book" element={<BooksPage />} />
         <Route path="/details" element={<Bookdetails/>}/>

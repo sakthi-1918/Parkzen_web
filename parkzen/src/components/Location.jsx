@@ -79,7 +79,14 @@ export default function UserCard() {
                       <div className="d-flex justify-content-between">
                         <button
                           type="button"
-                          className="btn btn-primary"
+                          className="btn"
+                          style={{
+                            backgroundColor: '#00008B',
+                            color: hoveredButtons[`book-${slot._id}`] ? '#ff6347' : '#fff',
+                            borderColor: '#00008B',
+                          }}
+                          onMouseEnter={() => setHoveredButtons(prev => ({ ...prev, [`book-${slot._id}`]: true }))}
+                          onMouseLeave={() => setHoveredButtons(prev => ({ ...prev, [`book-${slot._id}`]: false }))}
                           onClick={() => handleBookClick(slot.title)} // Pass the slot title here
                         >
                           Book
@@ -89,11 +96,11 @@ export default function UserCard() {
                           className="btn"
                           style={{
                             backgroundColor: '#00008B',
-                            color: hoveredButtons[slot._id] ? '#ff6347' : '#fff',
+                            color: hoveredButtons[`view-${slot._id}`] ? '#ff6347' : '#fff',
                             borderColor: '#00008B',
                           }}
-                          onMouseEnter={() => setHoveredButtons(prev => ({ ...prev, [slot._id]: true }))}
-                          onMouseLeave={() => setHoveredButtons(prev => ({ ...prev, [slot._id]: false }))}
+                          onMouseEnter={() => setHoveredButtons(prev => ({ ...prev, [`view-${slot._id}`]: true }))}
+                          onMouseLeave={() => setHoveredButtons(prev => ({ ...prev, [`view-${slot._id}`]: false }))}
                           onClick={() => handleViewClick(slot._id)}
                         >
                           View
