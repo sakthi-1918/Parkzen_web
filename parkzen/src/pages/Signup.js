@@ -93,7 +93,7 @@ const Signup = () => {
                     />
                 </div>
                 <button type="submit" className="signup-btn">
-                    <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Sign Up</Link></button>
+                    <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Set Password</Link></button>
 
                 <div className="extra-links">
                     <p>Already have an account? <a href="/">Sign In</a></p>

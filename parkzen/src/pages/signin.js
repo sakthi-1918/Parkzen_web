@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {  useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './signin.css';
 import staff from '../assets/staff.webp';
 import student from '../assets/student.jpg';
@@ -96,8 +96,8 @@ const SignIn = ({ onLogin }) => { // Accept onLogin prop
                     Login
                 </button>
                 <div className="extra-links">
-                    {/* <p>No account? <Link to="/signup">Signup</Link></p> */}
-                    <p><a href="#forgot">Forgot Password?</a></p>
+                    <p><Link to="/signup">Forgot Password?</Link></p>
+                    {/* <p><a href="#forgot">Forgot Password?</a></p> */}
                 </div>
             </form>
         </div>
