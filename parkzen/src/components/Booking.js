@@ -34,7 +34,7 @@ const Booking = () => {
                     endTime, 
                     slotNumber, 
                     email, 
-                    title // Include title in the request body
+                    title 
                 }),
             });
 

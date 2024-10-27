@@ -60,7 +60,12 @@ const BookingDetails = () => {
                             <p><strong>Slot Number:</strong> {booking.slotNumber}</p>
                             <p><strong>Email:</strong> {booking.email}</p>
                             <p><strong>Title:</strong> {booking.title}</p>
-                            <QRCodeCanvas value={`Vehicle Number: ${booking.vehicleNumber}, Date: ${booking.date}`} size={128} /> {/* Generate QR Code */}
+                            {/* <QRCodeCanvas value={`Vehicle Number: ${booking.vehicleNumber}, Date: ${booking.date}`} size={128} /> Generate QR Code */}
+                            <QRCodeCanvas 
+  value={`Vehicle Number: ${booking.vehicleNumber}, Date: ${booking.date}, Start Time: ${booking.startTime}, End Time: ${booking.endTime}, Title: ${booking.title}`} 
+  size={128} 
+/>
+
                         </div>
                     ))
                 ) : (

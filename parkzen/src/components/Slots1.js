@@ -58,7 +58,7 @@ const ParkingLot = () => {
                 {parkingData.slots.map((slot, index) => (
                     <div 
                         key={index} 
-                        className={`slot ${slot.available ? 'available' : 'booked'}`} // Change here to check availability
+                        className={`slot ${slot.available ? 'available' : 'booked'}`} 
                     >
                         Slot {slot.slotNumber}
                     </div>
