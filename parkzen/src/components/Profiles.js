@@ -57,7 +57,7 @@ const Profile = ({ email }) => {
                                             <img src="https://img.icons8.com/bubbles/100/000000/user.png" className="img-radius" alt="User-Profile-Image" />
                                         </div>
                                         <h6 className="f-w-600">{user.name}</h6>
-                                        <p>Student/Staff</p>
+                                        <p>Parent</p>
                                         <i className="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                                     </div>
                                 </div>

@@ -60,8 +60,8 @@ const Booking = () => {
 
     return (
         <div className="booking-container">
-            <h3>Book your slot</h3>
-            <h3>Slot Title: {slotTitle}</h3>
+            <h4>Book your slot</h4>
+            <h4>Slot Title: {slotTitle}</h4>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Email</label>

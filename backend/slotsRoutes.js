@@ -38,7 +38,7 @@ router.post('/addSlot', async (req, res) => {
 // Route to get all parking slots
 router.get('/slots', async (req, res) => {
     const db = getDb();
-    const slotsCollection = db.collection('slots'); // MongoDB collection
+    const slotsCollection = db.collection('slots'); 
 
     try {
         // Retrieve all parking slots
